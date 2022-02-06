@@ -59,4 +59,4 @@ $route['translate_uri_dashes'] = FALSE;
 $route['ship/(:any)'] = 'Ship/kapal';
 $route['ship/(:any)/(:any)'] = 'Ship/kapal';
 $route['sitemap\.xml'] = "sitemap";
-
+$route['api/(:any)'] = 'api';
