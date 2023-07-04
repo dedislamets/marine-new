@@ -171,13 +171,13 @@
                                     </div>
                                 </div>
                                 <div class="post-body">
-                                    <a href="<?= base_url(); ?>ship/<?= $value->id; ?>/<?= str_replace(" ", "-",strtolower($value->title)) ?>.html">
+                                    <a href="<?= base_url(); ?>ship/<?= $value->id; ?>/<?= str_replace(",","", str_replace(" ", "-",strtolower($value->title))) ?>.html">
                                         <h3 class="table-adv" style="margin-bottom: 0"><?= $value->title; ?></h3>
                                     </a>                              
                                 </div>
                                <div class="y-yacht_intro_img">
                                  <!-- <a href="charter_single.html"><img alt="" class="img-responsive" src="<?= base_url(); ?>assets/images/product_1.jpg"></a> -->
-                                 <a href="<?= base_url(); ?>ship/<?= $value->id; ?>/<?= str_replace(" ", "-",strtolower($value->title)) ?>.html" class="post-img">
+                                 <a href="<?= base_url(); ?>ship/<?= $value->id; ?>/<?= str_replace(",","", str_replace(" ", "-",strtolower($value->title))) ?>.html" class="post-img">
                                        <img src="<?= base_url(); ?>uploads/iklan/<?= isset($value->nama_foto)?$value->nama_foto:'not-found.png' ?>" />
                                   </a>
                                </div>

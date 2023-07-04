@@ -293,7 +293,7 @@
                               </a>
                            </div>
                            <div class="y-yacht_intro" style="padding-top: 5px"> 
-                                <a href="<?= base_url(); ?>ship/<?= $value->id; ?>/<?= str_replace(" ", "-",strtolower($value->title)) ?>.html">
+                                <a href="<?= base_url(); ?>ship/<?= $value->id; ?>/<?= str_replace(",","", str_replace(" ", "-",strtolower($value->title))) ?>.html">
                                     <h3 class="title-adv" style="margin-bottom: 0;height: 45px;font-size:15px;"><?= $value->title; ?></h3>
                                 </a>
                               <table class="tablet table-hide">
@@ -338,7 +338,7 @@
                                
                               </table>                           
                               <span style="text-align:left;font-size: 16px;" class="price-ship"><?= $price ?></span> 
-                             <a href="<?= base_url(); ?>ship/<?= $value->id; ?>/<?= str_replace(" ", "-",strtolower($value->title)) ?>.html" class="y-button">Learn More</a>
+                             <a href="<?= base_url(); ?>ship/<?= $value->id; ?>/<?= str_replace(",","", str_replace(" ", "-",strtolower($value->title))) ?>.html" class="y-button">Learn More</a>
                            </div> 
                          </li> 
                         <?php 
