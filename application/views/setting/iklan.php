@@ -218,13 +218,15 @@
                                                                         <i class="fa fa-trash"></i>&nbsp;Delete
                                                                     </a>
                                                                 </div>
-                                                                <div class="checkbox">
-                                                                      <label>
-                                                                        <input type="checkbox" data-toggle="toggle" class="chkactive" data-id="<?= $value->id; ?>"
-                                                                        <?php 
-                                                                            echo ($value->active==true)? 'checked' : ''?>>
-                                                                        Show Product
-                                                                      </label>
+                                                                <div class="row">
+                                                                    <div class="checkbox">
+                                                                          <label>
+                                                                            <input type="checkbox" data-toggle="toggle" class="chkactive" data-id="<?= $value->id; ?>"
+                                                                            <?php 
+                                                                                echo ($value->active==true)? 'checked' : ''?>>
+                                                                            Show Product
+                                                                          </label>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
