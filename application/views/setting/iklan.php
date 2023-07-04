@@ -218,7 +218,7 @@
                                                                         <i class="fa fa-trash"></i>&nbsp;Delete
                                                                     </a>
                                                                 </div>
-                                                                <div class="row">
+                                                                <div class="col-md-12">
                                                                     <div class="checkbox">
                                                                           <label>
                                                                             <input type="checkbox" data-toggle="toggle" class="chkactive" data-id="<?= $value->id; ?>"
@@ -282,7 +282,7 @@
                                                                     <i class="fa fa-edit"></i>&nbsp;Edit
                                                                 </a>
                                                             </div>
-                                                            <div class="row">
+                                                            <div class="col-md-12">
                                                                 <div class="checkbox">
                                                                       <label>
                                                                         <input type="checkbox" data-toggle="toggle" class="chkactive" data-id="<?= $value->id; ?>"
