@@ -21,13 +21,15 @@ class Ship extends CI_Controller {
 	    $uri_3 = $this->uri->segment(3);	    
 	    $this->db->select('t_kapal.*,t_iklan.id as iklan_id, `title`, `description`,`date_iklan`, `status`, `service`, `type`, `type_charter`, `price_charter`, `duration`, `duration_uom`, `area`, `price_freight`, `portloading`, `portdiscarge`, `qty_freight`, `price_csm`, `duration_csm`, `area_csm`, `duration_csm_uom`, `type_comodity`, `dest_comodity`, `qty_comodity`,country.name as country_name, `address_from`, `address_to`, `fee`, `price`');
         $this->db->from('t_kapal');
-        $this->db->join('t_iklan', 't_iklan.clasification_no=t_kapal.clasification_no');   
-        $this->db->join('country', 'country.iso=t_iklan.country');   
+        $this->db->join('t_iklan', 't_iklan.clasification_no=t_kapal.clasification_no', 'LEFT');   
+        $this->db->join('country', 'country.iso=t_iklan.country','LEFT');   
         $this->db->where(array('t_iklan.id'=>$uri_2));
-		$row	= $this->db->get()->result();	                  
+		$row	= $this->db->get()->result();	 
+		//echo $this->db->last_query();exit();
+
 		$data['data']  = $row;		
 		$this->db->from('t_foto_kapal');
-		$this->db->where(array('clasification_no'=>$row[0]->clasification_no));
+		$this->db->where('clasification_no='. $row[0]->clasification_no .' or clasification_no=' . $row[0]->iklan_id);
 		$data['foto'] = $this->db->get()->result();
 	    $data['title'] = 'Ship';
 		$data['main'] = 'ship/index';

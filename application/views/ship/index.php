@@ -123,7 +123,7 @@
                                     </div> -->
                                    <a href="#">
                                         <div style="min-height:300px;" class="zoomWrapper">                                           
-                                            <img id="product-featured-image" src="<?= base_url(); ?>uploads/iklan/<?= $foto[0]->nama_foto ?>" data-zoom-image="<?= base_url(); ?>uploads/iklan/<?= $foto[0]->nama_foto ?>" class="product-featured-img  zoom_default thickbox"  style="position: absolute;height:auto;width: 100%;top: 0px;left: 0px;">
+                                            <img id="product-featured-image" src="<?= base_url(); ?>uploads/iklan/<?= empty($foto[0]->nama_foto)? 'not-found.png' : $foto[0]->nama_foto ?>" data-zoom-image="<?= base_url(); ?>uploads/iklan/<?= empty($foto[0]->nama_foto)? 'not-found.png' : $foto[0]->nama_foto ?>" class="product-featured-img  zoom_default thickbox"  style="position: absolute;height:auto;width: 100%;top: 0px;left: 0px;">
                                         </div>                                        
                                    </a>
                                 </div>
@@ -133,7 +133,7 @@
                                          <div class="owl-stage" style="width: 508px;">
                                             <?php foreach($foto as $value) { ?>
                                                 <div class="owl-item" style="width: 91.5px; margin-right: 10px;">
-                                                    <a class="thumbnail" data-image-zoom="<?= base_url(); ?>uploads/iklan/<?= $value->nama_foto; ?>" data-index=" 0" data-image="<?= base_url(); ?>uploads/iklan/<?= $value->nama_foto; ?>">
+                                                    <a class="thumbnail" data-image-zoom="<?= base_url(); ?>uploads/iklan/<?= empty($value->nama_foto)? 'not-found.png' : $value->nama_foto ?>" data-index=" 0" data-image="<?= base_url(); ?>uploads/iklan/<?= empty($value->nama_foto)? 'not-found.png' : $value->nama_foto ?>">
                                                         <?php
             			                                    if ($this->agent->is_mobile())
             			                                    {
@@ -144,7 +144,7 @@
             			                                        $agent = $value->nama_foto;
             			                                    }
             			                                ?>
-                                                        <img class="product-single__thumbnail-image" src="<?= base_url(); ?>uploads/iklan/<?= $agent; ?>" >
+                                                        <img class="product-single__thumbnail-image" src="<?= base_url(); ?>uploads/iklan/<?= empty($value->nama_foto)? 'not-found.png' : $agent ?>" >
                                                    </a>
                                                 </div>                                            
                                             <?php } ?>                                     
@@ -165,14 +165,15 @@
                                     </div>
                                     <div class="panel-body">
                                          <div class="product-single__meta">   
-                                            <?php if(!empty($price)){ ?>
+                                            
                                             <div class="clearfix product-price">                
                                                   <h2 style="display: inline-block;font-weight: 900">Price :</h2>
-                                                  <h2 style="display: inline-block;font-weight: 900">Rp <?= $price ?></h2>
+                                                  <h2 style="display: inline-block;font-weight: 900"><?= empty($price) ? 'Negotiable' : 'Rp '. $price ?></h2>
                                             </div>
-                                            <?php } ?>
                                             <ul class="nav nav-pills">
-                                                <li class="mov active" id="spec"><a data-toggle="pill" href="#home">Spesification</a></li>
+                                                <li class="mov active" id="spec">
+                                                    <a data-toggle="pill" href="#home">Spesification</a>
+                                                </li>
                                                 <li class="mov" id="dimensi"><a data-toggle="pill" href="#menu1">Dimension</a></li>
                                                 <li class="mov" id="capacity"><a data-toggle="pill" href="#menu2">Capacity</a></li>                                                        
                                             </ul>

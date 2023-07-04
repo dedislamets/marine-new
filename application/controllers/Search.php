@@ -43,7 +43,11 @@ class Search extends CI_Controller {
             }
 		}		
         
-        $string = "SELECT `t_iklan`.*, `nama_foto`, `vessel_nama`, `place_build`, `year_build`, `construction` FROM `t_iklan` LEFT JOIN `t_foto_kapal` ON `t_foto_kapal`.`clasification_no`=`t_iklan`.`clasification_no` inner JOIN `t_kapal` ON `t_kapal`.`clasification_no`=`t_iklan`.`clasification_no` WHERE `status` = 1 AND `active`=1 AND ( `vessel_nama` LIKE '%". $keyword ."%' ESCAPE '!' OR `title` LIKE '%". $keyword ."%' ESCAPE '!' OR `service` LIKE '%". $keyword ."%' ESCAPE '!'";
+        $string = "SELECT `t_iklan`.*, `nama_foto`, `vessel_nama`, `place_build`, `year_build`, `construction` 
+        	FROM `t_iklan` 
+        	LEFT JOIN `t_foto_kapal` ON `t_foto_kapal`.`clasification_no`=`t_iklan`.`clasification_no` OR `t_foto_kapal`.`clasification_no`=`t_iklan`.`id` 
+        	inner JOIN `t_kapal` ON `t_kapal`.`clasification_no`=`t_iklan`.`clasification_no` 
+        	WHERE `status` = 1 AND `active`=1 AND ( `vessel_nama` LIKE '%". $keyword ."%' ESCAPE '!' OR `title` LIKE '%". $keyword ."%' ESCAPE '!' OR `service` LIKE '%". $keyword ."%' ESCAPE '!'";
         if(!empty($strsvc)){
             $string .=" OR service in (".rtrim($strsvc,',').") ";
         }

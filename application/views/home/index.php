@@ -288,8 +288,8 @@
                                         $agent = $value->nama_foto;
                                     }
                                 ?>
-                             <a href="<?= base_url(); ?>ship/<?= $value->id; ?>/<?= str_replace(" ", "-",strtolower($value->title)) ?>.html" class="post-img">
-                                   <img src="<?= base_url(); ?>uploads/iklan/<?= isset($value->nama_foto)?$agent :'not-found.jpg' ?>" />
+                             <a href="<?= base_url(); ?>ship/<?= $value->id; ?>/<?= str_replace(",","", str_replace(" ", "-",strtolower($value->title))) ?>.html" class="post-img">
+                                   <img src="<?= base_url(); ?>uploads/iklan/<?= empty($value->nama_foto)? 'not-found.png' : $agent ?>" />
                               </a>
                            </div>
                            <div class="y-yacht_intro" style="padding-top: 5px"> 

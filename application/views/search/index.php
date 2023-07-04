@@ -178,7 +178,7 @@
                                <div class="y-yacht_intro_img">
                                  <!-- <a href="charter_single.html"><img alt="" class="img-responsive" src="<?= base_url(); ?>assets/images/product_1.jpg"></a> -->
                                  <a href="<?= base_url(); ?>ship/<?= $value->id; ?>/<?= str_replace(" ", "-",strtolower($value->title)) ?>.html" class="post-img">
-                                       <img src="<?= base_url(); ?>uploads/iklan/<?= isset($value->nama_foto)?$value->nama_foto:'not-found.jpg' ?>" />
+                                       <img src="<?= base_url(); ?>uploads/iklan/<?= isset($value->nama_foto)?$value->nama_foto:'not-found.png' ?>" />
                                   </a>
                                </div>
                                <div class="y-yacht_intro" style="padding-top: 5px"> 
@@ -188,7 +188,7 @@
                                             Vessel Name
                                         </td>
                                         <td class="table-adv">
-                                            <?= $value->vessel_nama; ?>
+                                            <?= empty($value->vessel_nama) ? 'No Description' : $value->vessel_nama ?>
                                         </td>
                                     </tr>
                                     <tr>
@@ -196,7 +196,7 @@
                                             Type
                                         </td>
                                         <td class="table-adv">
-                                            <?= $value->type; ?>
+                                            <?= empty($value->type) ? 'No Defined' : $value->type; ?>
                                         </td>
                                     </tr>
                                     <tr>
@@ -212,7 +212,7 @@
                                             Material
                                         </td>
                                         <td class="table-adv">
-                                            <?= $value->construction; ?>
+                                            <?= empty($value->construction) ? 'No Defined' : $value->construction; ?>
                                         </td>
                                     </tr>
                                   </table>                           
@@ -251,10 +251,10 @@
           if(url){  
             if(cs.length==2){                      
               spram = checkedService(cs[1], spram,'trading');           
-              window.location.assign("https://marinebusiness.co.id/search/" + spram);
+              window.location.assign("<?= base_url() ?>search/" + spram);
             }  
           }else{
-            window.location.assign("https://marinebusiness.co.id/search/" + spram + "&service=trading");
+            window.location.assign("<?= base_url() ?>search/" + spram + "&service=trading");
           }
         }else{
           uncheckedService('trading');
@@ -265,10 +265,10 @@
           if(url){            
             if(cs.length==2){
               spram = checkedService(cs[1], spram,'chartering');           
-              window.location.assign("https://marinebusiness.co.id/search/" + spram);
+              window.location.assign("<?= base_url() ?>search/" + spram);
             }  
           }else{
-            window.location.assign("https://marinebusiness.co.id/search/" + spram + "&service=chartering");
+            window.location.assign("<?= base_url() ?>search/" + spram + "&service=chartering");
           }
         }else{
           uncheckedService('chartering');
@@ -279,10 +279,10 @@
           if(url){            
             if(cs.length==2){
               spram = checkedService(cs[1], spram,'management');           
-              window.location.assign("https://marinebusiness.co.id/search/" + spram);
+              window.location.assign("<?= base_url() ?>search/" + spram);
             }  
           }else{
-            window.location.assign("https://marinebusiness.co.id/search/" + spram + "&service=management");
+            window.location.assign("<?= base_url() ?>search/" + spram + "&service=management");
           }
         }else{
           uncheckedService('management');
@@ -293,10 +293,10 @@
           if(url){            
             if(cs.length==2){
               spram = checkedService(cs[1], spram,'transportation');           
-              window.location.assign("https://marinebusiness.co.id/search/" + spram);
+              window.location.assign("<?= base_url() ?>search/" + spram);
             }  
           }else{
-            window.location.assign("https://marinebusiness.co.id/search/" + spram + "&service=transportation");
+            window.location.assign("<?= base_url() ?>search/" + spram + "&service=transportation");
           }
         }else{
           uncheckedService('transportation');
