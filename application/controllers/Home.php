@@ -12,14 +12,15 @@ class Home extends CI_Controller {
 	{						  
 		$live = $this->db->select('t_iklan.*,nama_foto,nama_foto_thumb,vessel_nama,place_build,year_build,construction')
 				->from('t_iklan')
-				->join('t_foto_kapal', 't_foto_kapal.clasification_no=t_iklan.clasification_no','left')
+				->join('t_foto_kapal', 't_foto_kapal.clasification_no=t_iklan.clasification_no 
+					or t_foto_kapal.clasification_no= cast(t_iklan.id as varchar(50))','left')
 				->join('t_kapal', 't_kapal.clasification_no=t_iklan.clasification_no','left')
 				->where(array('status' => 1,'active' => 1))
 				->group_by('t_iklan.id')
 				->order_by('date_iklan','desc')				
 				->get()
 				->result();
-
+		//echo $this->db->last_query();exit();
 		$query = [];
 		$senders = [];
 		$data['notifikasi']["count"] = 0;
