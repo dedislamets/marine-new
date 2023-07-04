@@ -303,7 +303,7 @@
                                     </td>
                                     <td >
                                         <div class="table-adv">
-                                          <?= $value->vessel_nama; ?>
+                                          <?= empty($value->vessel_nama) ? 'No Description' : $value->vessel_nama ?>
                                         </div>
                                     </td>
                                 </tr>
@@ -321,7 +321,7 @@
                                     </td>
                                     <td>
                                         <div class="table-adv">
-                                          <?= $value->type; ?>
+                                          <?= empty($value->type) ? 'No Defined' : $value->type; ?>
                                         </div>
                                     </td>
                                 </tr>
